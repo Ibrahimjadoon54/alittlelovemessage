@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160b1c">
+  <title>Our Little Universe ♥</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="starfield"></div>
+  <div id="floatLayer"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">♥</span>
+      <span>Our Little Universe</span>
+    </div>
+    <div class="step-pill" id="stepPill">
+      Chapter 01 · The Beginning
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE 1: WELCOME -->
+    <section class="page active" id="page1">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A little something, just for you</div>
+
+          <h1>
+            In a universe<br>
+            of people,<br>
+            <span class="italic">it's you.</span>
+          </h1>
+
+          <p class="lead">
+            I made you a little corner of the internet,
+            filled with feelings that never quite fit inside
+            an ordinary message. Take your time.
+            Every page has something from my heart.
+          </p>
+
+          <div class="actions">
+            <button class="primary" onclick="goTo('page2')">
+              Open Your Surprise ↗
+            </button>
+          </div>
+
+          <p class="microcopy">
+            Made with love. Just for you. ♥
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit"></div>
+          <div class="orbit two"></div>
+          <div class="hero-heart">♥</div>
+          <div class="orbit-label">You · Me · Always</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: DATE PROPOSAL -->
+    <section class="page" id="page2">
+      <div class="panel proposal-card centered">
+        <div class="eyebrow">
+          Chapter 02 · An Important Question
+        </div>
+
+        <h2 class="proposal-question">
+          Will you go on a
+          <span class="italic">date</span> with me?
+        </h2>
+
+        <p class="lead">
+          Not a proposal to become anything new.
+          Just a day to make some beautifull memories,
+          even when life gets busy.
+          One date, just us, no rush. ❤️
+        </p>
+
+        <div class="proposal-actions">
+          <button class="primary" onclick="acceptDate()">
+            YES, MY LOVE ♥
+          </button>
+
+          <button class="secondary" id="noBtn">
+            No 🙈
+          </button>
+        </div>
+
+        <p class="microcopy" id="proposalHint">
+          P.S. The No button is a little shy. Try catching it!
+        </p>
+      </div>
+    </section>
+
+    <!-- PAGE 3: DATE PLANNER -->
+    <section class="page" id="page3">
+      <div class="panel">
+        <div class="eyebrow">Chapter 03 · Just Us Two</div>
+
+        <h2>
+          Let's plan our
+          <span class="italic">little date.</span>
+        </h2>
+
+        <p class="lead">
+          Choose what feels good for you.
+          We can always adjust the plan together.
+        </p>
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="dateInput">Our Date</label>
+            <input type="date" id="dateInput">
+          </div>
+
+          <div class="field">
+            <label for="timeInput">What Time Works?</label>
+            <input type="time" id="timeInput" value="19:00">
+          </div>
+
+          <div class="field">
+            <label for="dateType">Choose Our Vibe</label>
+            <select id="dateType">
+              <option value="Cozy dinner and long conversations">
+                Cozy Dinner & Long Conversations
+              </option>
+              <option value="Cozy dinner and long conversations">
+                Long Walk & Long Drive With Fun
+              </option>
+              <option value="Sunset walk and something sweet">
+                Sunset Walk & Something Sweet
+              </option>
+              <option value="Movie night, snacks and cuddles">
+                Movie Night & Cuddles
+              </option>
+              <option value="A little adventure somewhere new">
+                A Little Adventure
+              </option>
+              <option value="No phones, just us">
+                No Phones — Just Us
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="placeInput">Where Should We Go?</label>
+            <input
+              type="text"
+              id="placeInput"
+              placeholder="Somewhere special..."
+              maxlength="100"
+            >
+          </div>
+
+          <div class="field full">
+            <label for="noteInput">
+              One Thing You Want From Our Date
+            </label>
+            <textarea
+              id="noteInput"
+              rows="3"
+              placeholder="More laughs, a long hug, your favourite dessert..."
+            ></textarea>
+          </div>
+
+        </div>
+
+        <p class="helper">
+          Choose your perfect plan. Nothing gets booked automatically.
+        </p>
+
+        <div class="actions">
+          <button class="primary" onclick="saveDate()">
+            Save Our Little Plan ♥
+          </button>
+
+          <button class="secondary" onclick="goTo('page2')">
+            Back
+          </button>
+        </div>
+
+        <div id="dateSummary"></div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: HEART GAME -->
+    <section class="page" id="page4">
+      <div class="eyebrow">Chapter 04 · A Tiny Challenge</div>
+
+      <h2>
+        Catch a few
+        <span class="italic">pieces of my heart.</span>
+      </h2>
+
+      <p class="lead">
+        Before the next surprise unlocks,
+        collect five floating hearts.
+        A little game for my favourite person.
+      </p>
+
+      <div class="game-layout">
+
+        <div class="instruction-card">
+          <div class="score">
+            ♥ <span id="scoreText">0</span> / 5 collected
+          </div>
+
+          <h3>How to Play</h3>
+
+          <ol>
+            <li>Tap or click the glowing hearts.</li>
+            <li>Collect five hearts to unlock the next chapter.</li>
+            <li>Missed one? Don't worry, try again.</li>
+          </ol>
+
+          <p class="helper">
+            You already have my whole heart. This is just for fun. ♡
+          </p>
+
+          <button class="secondary" onclick="resetGame()">
+            Restart Game ↻
+          </button>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+          <div class="game-message" id="gameMessage">
+            <div>
+              <strong>Ready, my love?</strong>
+              Tap the hearts as they appear.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 5: INTERACTIVE HEART -->
+    <section class="page" id="page5">
+      <div class="heart-page-grid">
+
+        <div class="heart-stage">
+          <div class="heart-ring"></div>
+
+          <button
+            class="big-tap-heart"
+            id="bigHeart"
+            onclick="tapHeart()"
+            aria-label="Tap the heart"
+          >♥</button>
+        </div>
+
+        <div>
+          <div class="eyebrow">Chapter 05 · A Little Heartbeat</div>
+
+          <h2>
+            Every beat says
+            <span class="italic">your name.</span>
+          </h2>
+
+          <p class="lead">
+            Tap the heart a few times.
+            Each pulse is a tiny reminder that love isn't
+            only in grand gestures. It's in the everyday
+            choice to care, listen, and understand.
+          </p>
+
+          <p class="heart-count">
+            <span id="heartCount">0</span> little heartbeats shared
+          </p>
+
+          <button
+            class="primary"
+            id="letterBtn"
+            onclick="goTo('page6')"
+            disabled
+          >
+            Open My Letter ♥
+          </button>
+
+          <p class="helper" id="heartHint">
+            Tap the heart 5 times to reveal your letter.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 6: LOVE LETTER -->
+    <section class="page" id="page6">
+      <div class="letter-paper">
+
+        <div class="eyebrow">Chapter 06 · From My Heart to Yours</div>
+
+        <h2>
+          To My
+          <span class="italic">Beautiful Wife,</span>
+        </h2>
+
+        <div class="letter-body" id="letterBody">
+My love,
+
+Sometimes I get so caught up in the rush of everyday life that I don't say the simplest things as often as I should: you matter to me, you are appreciated, and I am grateful that I get to share this life with you.
+
+You are not just someone I love on the easy days. You are the person I want beside me while we learn, grow, laugh at silly things, work through difficult moments, and make ordinary days feel special.
+
+I don't expect us to be perfect. I want us to keep being honest, patient, gentle, and willing to understand each other.
+
+I still want to date you. I still want to learn new things about you. I want to make room for your dreams, listen to your thoughts, celebrate your wins, and be a safe place when the world feels heavy.
+
+Thank you for the love you give, the effort you make, and all the little things that can be easy to overlook when life gets busy.
+
+I hope I keep showing you — not only through words, but through my actions — that you are cherished.
+
+May we keep choosing each other, making memories, and building a relationship that feels warmer and stronger with time.
+
+No website could ever fit everything I feel for you. But this one is a small reminder, made just for you, that my heart is still here — choosing you, today and on all the ordinary days still to come.
+
+With all my love, always.
+        </div>
+
+        <p class="signature">Yours, today and always ♥</p>
+      </div>
+
+      <div class="letter-tools">
+        <button class="primary" onclick="goTo('page7')">
+          One Last Surprise ↗
+        </button>
+
+        <button class="secondary" onclick="copyLetter()">
+          Copy the Letter
+        </button>
+
+        <button class="text-button" onclick="goTo('page5')">
+          Back to the Heart
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 7: FINAL SURPRISE -->
+    <section class="page" id="page7">
+      <div class="final-grid">
+
+        <div>
+          <div class="eyebrow">
+            The End of the Page · Not the Story
+          </div>
+
+          <h2>
+            My favourite place is
+            <span class="italic">beside you.</span>
+          </h2>
+
+          <p class="lead">
+            The best part of this little journey isn't
+            a button, a game, or a perfect design.
+            It's the real life waiting after you close
+            this page — the conversations, the kindness,
+            the dates we make time for, and all the memories
+            still ahead of us.
+          </p>
+
+          <div class="actions">
+            <button class="primary" onclick="celebrate()">
+              Celebrate Us ♥
+            </button>
+
+            <button class="secondary" onclick="goTo('page1')">
+              Replay Our Story ↻
+            </button>
+          </div>
+        </div>
+
+        <div class="memory-card">
+          <div class="big-number">∞</div>
+
+          <h3>A Little Promise</h3>
+
+          <p class="lead">
+            Not that every day will be perfect —
+            but that I want to keep showing up,
+            keep listening, and keep making space for us.
+          </p>
+
+          <div class="heart-count">
+            YOU + ME · ALWAYS LEARNING
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    Love this Beacuse it's · Made M.Ibrahim Khan ♥
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
